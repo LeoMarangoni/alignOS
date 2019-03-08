@@ -12,9 +12,7 @@ sudo apt dist-upgrade -y
 # 2.1. Remove default Browser
 sudo apt -y purge epiphany-browser \
                epiphany-browser-data
-# 2.2. Remove this to fix lock-screen bug in Elementary OS JUNO 
-sudo apt purge disable-light-locker
-# 2.3. Taking off the trash
+# 2.2. Taking off the trash
 sudo apt autoremove -y
 sudo apt autoclean -y
 ####################################################################################################
@@ -51,11 +49,11 @@ sudo rm /var/lib/apt/lists/* -vf
 sudo apt-get update
 curl -fsSl https://get.docker.com/ | sh
 # 5.2. NodeJS
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 sudo apt install -y nodejs
 # 5.3. Golang
-wget https://dl.google.com/go/go1.11.2.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.11.2.linux-amd64.tar.gz
+wget https://dl.google.com/go/go1.12.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.12.linux-amd64.tar.gz
 # 5.4. vscode
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
@@ -84,16 +82,11 @@ sudo apt -y install google-chrome-stable
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt -y install spotify-client
-# 6.6. Skype
-echo "deb [arch=amd64] https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/skype-stable.list
-wget https://repo.skype.com/data/SKYPE-GPG-KEY
-sudo apt-key add SKYPE-GPG-KEY
-sudo apt -y install skypeforlinux
-# 6.7. Slack
-wget https://downloads.slack-edge.com/linux_releases/slack-desktop-3.3.3-amd64.deb
-sudo dpkg -i slack-desktop-3.3.3-amd64.deb 
+# 6.6. Slack
+wget https://downloads.slack-edge.com/linux_releases/slack-desktop-3.3.7-amd64.deb
+sudo dpkg -i slack-desktop-3.3.7-amd64.deb 
 sudo apt -f install -y
-rm -f slack-desktop-3.3.3-amd64.deb 
+rm -f slack-desktop-3.3.7-amd64.deb 
 ####################################################################################################
 # 7. Theming
 # 7.1. Elementary Tweak
